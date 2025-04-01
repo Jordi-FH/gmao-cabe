@@ -56,6 +56,7 @@ export default function App() {
     <div className="p-4 max-w-5xl mx-auto text-sm font-sans">
       <img src="/image.png" alt="Logo" className="h-10 mb-4" />
       <h1 className="text-xl font-bold mb-4 text-red-600">Gestión de Incidencias – CABE Trasteros</h1>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border p-4 rounded-xl shadow-sm bg-white mb-6">
         <select name="centro" onChange={handleChange} className="border p-2 rounded" value={form.centro}>
           {centros.map((c, i) => <option key={i}>{c}</option>)}
@@ -103,7 +104,11 @@ export default function App() {
               <tr key={idx}>
                 <td className="p-2 border">{i.centro}</td>
                 <td className="p-2 border">{i.tipo}</td>
-                <td className={\`p-2 border \${i.prioridad === "Alta" ? "text-red-600" : i.prioridad === "Media" ? "text-yellow-600" : "text-green-600"}\`}>
+                <td className={`p-2 border ${
+                  i.prioridad === "Alta" ? "text-red-600" :
+                  i.prioridad === "Media" ? "text-yellow-600" :
+                  "text-green-600"
+                }`}>
                   {i.prioridad}
                 </td>
                 <td className="p-2 border">{i.descripcion}</td>
